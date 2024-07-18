@@ -12,6 +12,9 @@ public:
         }
     }
     vector<int> lexicalOrder(int n) {
+        ios_base::sync_with_stdio(false);
+        cin.tie(NULL);
+        cout.tie(NULL);
         vector<int> ans;
         for(int i=1; i<10; i++){
             if(i>n)
