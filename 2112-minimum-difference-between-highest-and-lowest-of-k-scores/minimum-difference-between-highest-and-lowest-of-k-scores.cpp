@@ -7,9 +7,12 @@ public:
         int n = nums.size();
         int minDiff = INT_MAX;
 
-        for (int i = 0; i <= n - k; ++i) {
-            int diff = nums[i + k - 1] - nums[i];
-            minDiff = min(minDiff, diff);
+        int l=0, r=k-1;
+        int diff=nums[r]-nums[l];
+        while(r<n){
+            diff=nums[r]-nums[l];
+            minDiff=min(minDiff, diff);
+            l++; r++;
         }
         return minDiff;
     }
