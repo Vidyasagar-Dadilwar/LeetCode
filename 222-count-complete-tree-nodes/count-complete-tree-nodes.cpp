@@ -15,9 +15,7 @@ public:
         if(root==NULL){
             return 0;
         }
-        int l=solve(root->left);
-        int r=solve(root->right);
-        return l+r+1;
+        return solve(root->left)+solve(root->right)+1;
     }
     int countNodes(TreeNode* root) {
         return solve(root);
