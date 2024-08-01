@@ -1,6 +1,9 @@
 class Solution {
 public:
     vector<vector<int>> kSmallestPairs(vector<int>& nums1, vector<int>& nums2, int k) {
+        ios_base::sync_with_stdio(false);
+        cin.tie(NULL);
+        cout.tie(NULL);
         priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int,int>>>pq;
         vector<vector<int>>ans;
 
