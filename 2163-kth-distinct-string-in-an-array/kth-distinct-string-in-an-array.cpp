@@ -5,14 +5,15 @@ public:
         for (const auto& str : arr) {
             mp[str]++;
         }
-        for(auto i: arr){
-            if(mp[i]==1 && k==1){
-                return i;
-            }
-            else if(mp[i]==1){
+        string kString = "";
+        for(auto a: arr){
+            if (mp[a] == 1) {
                 k--;
+                if (k == 0) {
+                    kString = a;
+                }
             }
         }
-        return "";
+        return kString;
     }
 };
