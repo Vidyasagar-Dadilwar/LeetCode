@@ -1,6 +1,9 @@
 class Solution {
 public:
     vector<vector<int>> spiralMatrixIII(int rows, int cols, int rStart, int cStart) {
+        ios_base::sync_with_stdio(false);
+        cin.tie(NULL);
+        cout.tie(NULL);
         vector<vector<int>> dir = {{0,1}, {1,0}, {0,-1}, {-1,0}};
         vector<vector<int>> res;
         int steps = 1;
