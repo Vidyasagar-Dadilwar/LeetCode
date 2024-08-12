@@ -7,7 +7,7 @@ public:
         if(target == 0){
             return true;
         }
-        int xy = __gcd(x, y);
-        return target % xy == 0;
+        int temp = __gcd(x, y);
+        return target % temp == 0;
     }
 };
