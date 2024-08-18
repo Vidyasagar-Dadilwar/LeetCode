@@ -1,6 +1,9 @@
 class Solution {
 public:
     int nthUglyNumber(int n) {
+        ios_base::sync_with_stdio(false);
+        cin.tie(NULL);
+        cout.tie(NULL);
         vector<int>arr(n+1);
         int i2, i3, i5;
         i2=i3=i5=1;
