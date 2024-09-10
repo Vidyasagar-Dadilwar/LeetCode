@@ -10,31 +10,66 @@
  */
 class Solution {
 public:
-    ListNode* createLinkedList(const vector<int>& values) {
-        ListNode* dummy_head = new ListNode(0);
-        ListNode* current = dummy_head;
-
-        for (int val : values) {
-            current->next = new ListNode(val);
-            current = current->next;
+    int traverse(ListNode *head) {
+        int len = 0;
+        while(head) {
+            len++;
+            head = head -> next;
         }
-        return dummy_head->next;
+        return len;
     }
-
-    void solve(ListNode* l1, ListNode* l2, vector<int>&res, int carry){
-        if (!l1 && !l2 && carry == 0) {
-            return;
-        }
-        int sum = (l1?l1->val:0)+(l2?l2->val:0)+carry;
-        carry=sum/10;
-        res.push_back(sum%10);
-        solve(l1?l1->next:nullptr, l2?l2->next:nullptr, res, carry);
-    }
-
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
-        vector<int> res;
+        ListNode *temp1,*temp2;
+        // temp1 will contain lower length list and temp2 will contain bigger length list
+        if(traverse(l1) <= traverse(l2)) {
+            temp1 = l1;
+            temp2 = l2;
+        }
+        else {
+            temp1 = l2;
+            temp2 = l1;
+        }
+        ListNode *head = NULL;
+        ListNode *curr;
         int carry = 0;
-        solve(l1, l2, res, carry);
-        return createLinkedList(res);
+        while(temp1) {
+            int val = temp1 -> val + temp2 -> val + carry;
+            if(val >= 10) {
+                carry = 1;
+                val = val % 10;
+            }
+            else
+                carry = 0;
+            ListNode *t = new ListNode(val);
+            if(head == NULL) {
+                head = t;
+                curr = head;
+            }
+            else {
+                curr -> next = t;
+                curr = curr -> next;
+            }
+            temp1 = temp1 -> next;
+            temp2 = temp2 -> next;
+        }
+        while(temp2) {
+            int val = temp2 -> val + carry;
+            if(val >= 10) {
+                val = val % 10;
+                carry = 1;
+            }
+            else
+                carry = 0;
+            ListNode *t = new ListNode(val);
+            curr -> next = t;
+            curr = curr -> next;
+            temp2 = temp2 -> next;
+        }
+        if(carry) {
+            ListNode *t = new ListNode(carry);
+            curr -> next = t;
+            curr = curr -> next;
+        }
+        return head;
     }
 };
