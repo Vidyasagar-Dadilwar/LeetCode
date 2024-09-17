@@ -10,6 +10,9 @@ public:
         return words;
     }
     vector<string> uncommonFromSentences(string s1, string s2) {
+        ios_base::sync_with_stdio(false);
+        cin.tie(NULL);
+        cout.tie(NULL);
         vector<string> w1 = convertString(s1);
         vector<string> w2 = convertString(s2);
 
