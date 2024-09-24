@@ -10,7 +10,6 @@ public:
                 mp[temp]++;
             }
         }
-
         int maxLen = 0;
         for(auto i: arr2){
             string s = to_string(i);
