@@ -1,6 +1,9 @@
 class Solution {
 public:
     int longestCommonPrefix(vector<int>& arr1, vector<int>& arr2) {
+        ios_base::sync_with_stdio(false);
+        cin.tie(NULL);
+        cout.tie(NULL);
         unordered_map<string, int>mp;
         for(auto i: arr1){
             string s = to_string(i);
