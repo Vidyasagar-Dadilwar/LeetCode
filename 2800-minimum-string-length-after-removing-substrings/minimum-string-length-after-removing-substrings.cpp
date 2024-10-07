@@ -1,21 +1,22 @@
 class Solution {
 public:
     int minLength(string s) {
-        int i=0, j=1;
-        while(j<s.size()){
-            if(i<0){
-                i++;
-                s[i]=s[j];
+        stack<char>stk;
+        for(auto c: s){
+            stk.push(c);
+            while(stk.size() > 1){
+                char sec = stk.top();
+                stk.pop();
+                char fst = stk.top();
+                if((fst == 'A' && sec == 'B') || (fst == 'C' && sec == 'D')){
+                    stk.pop();
+                }
+                else{
+                    stk.push(sec);
+                    break;
+                }
             }
-            else if((s[i]=='A' && s[j]=='B') || (s[i]=='C' && s[j]=='D')){
-                i--;
-            }
-            else{
-                i++;
-                s[i]=s[j];
-            }
-            j++;
         }
-        return i+1;
+        return stk.size();
     }
 };
