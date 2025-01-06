@@ -1,5 +1,19 @@
 class Solution {
 public:
+    // algorithm:
+    // 1. for each element of the board call findWord function
+    // 2. findWord function
+    //     checks the index out of bound
+    //     checks valid position of i, j and checks if word at currInd 
+    //         equal to board at position i, j and also check if position
+    //         i, j are already visited or not
+    //     marks the position i, j visited
+    //     iteratively calls findWord function for all the 4 direction
+    //     returns true if found word in any of the direction
+    //     returns vis[i][j] == false;
+    // 3. isValid checks if the pos i, j is not out of the bounds
+
+
     int dx[4] = {-1, 0, 1, 0};
     int dy[4] = {0, 1, 0, -1};
 
