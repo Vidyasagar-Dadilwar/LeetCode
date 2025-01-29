@@ -14,6 +14,8 @@ public:
         return false;
     }
     vector<int> findRedundantConnection(vector<vector<int>>& edges) {
+        ios_base::sync_with_stdio(false);
+        cin.tie(NULL);
         int n = edges.size();
         vector<int> ans;
         vector<vector<int>> adj(n+1);
