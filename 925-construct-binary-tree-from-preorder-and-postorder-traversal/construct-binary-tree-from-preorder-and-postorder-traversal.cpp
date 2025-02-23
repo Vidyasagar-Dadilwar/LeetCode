@@ -11,29 +11,17 @@
  */
 class Solution {
 public:
+    int preInd, postInd;
     TreeNode* constructFromPrePost(vector<int>& preorder, vector<int>& postorder) {
-        TreeNode* root = new TreeNode(preorder[0]);
-        stack<TreeNode*> st;
-        st.push(root);
-        int n = preorder.size();
-        vector<int> it(n+1);
+        TreeNode* root = new TreeNode(preorder[preInd]);
+        preInd++;
 
-        for(int i=0; i<n; i++)
-            it[postorder[i]] = i;
-
-        for(int i=1; i<n; i++){
-            while(st.size() && it[preorder[i]] > it[st.top()->val])
-                st.pop();
-
-            TreeNode* tmp = st
-            .top();
-            TreeNode* node = new TreeNode(preorder[i]);
-            if(!tmp->left)  
-                tmp->left = node;
-            else
-                tmp->right = node;
-            st.push(node);
-        }
+        if(root->val != postorder[postInd])
+            root->left = constructFromPrePost(preorder, postorder);
+        if(root->val != postorder[postInd])
+            root->right = constructFromPrePost(preorder, postorder);
+        
+        postInd++;
         return root;
     }
 };
