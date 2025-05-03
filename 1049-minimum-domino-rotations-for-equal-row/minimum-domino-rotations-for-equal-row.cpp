@@ -1,6 +1,8 @@
 class Solution {
 public:
     int minDominoRotations(vector<int>& tops, vector<int>& bottoms) {
+        ios_base::sync_with_stdio(false);
+        cin.tie(NULL);
         int res = INT_MAX;
         for (int j = 1; j <= 6; ++j) {
             bool flag = true;
