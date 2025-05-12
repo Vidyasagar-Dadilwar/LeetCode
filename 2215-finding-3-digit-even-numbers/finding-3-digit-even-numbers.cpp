@@ -11,6 +11,9 @@ public:
         return true;
     }
     vector<int> findEvenNumbers(vector<int>& digits) {
+        ios_base::sync_with_stdio(false);
+        cin.tie(NULL);
+        cout.tie(NULL);
         vector<int> arr;
         unordered_map<int, int> mp;
         for(auto it: digits)
