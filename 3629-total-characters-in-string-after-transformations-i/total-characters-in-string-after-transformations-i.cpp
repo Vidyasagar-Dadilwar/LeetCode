@@ -2,6 +2,10 @@ class Solution {
 public:
     const int MOD = 1e9 + 7; 
     int lengthAfterTransformations(const string& s, int t) {
+        ios_base::sync_with_stdio(false);
+        cin.tie(NULL);
+        cout.tie(NULL);
+
         vector<long long> freq(26, 0); 
         for (char c : s) {
             freq[c - 'a']++;
