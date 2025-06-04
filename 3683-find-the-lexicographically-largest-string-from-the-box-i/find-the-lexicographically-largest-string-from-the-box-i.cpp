@@ -2,26 +2,33 @@ class Solution {
 public:
     string answerString(string word, int numFriends) {
         int n = word.size();
-        string maxStr = "";
+        int k = n - numFriends + 1;
+        int i = 0, j = 1;
+
         if(numFriends == 1)
             return word;
             
-        for (int i = 0; i < n; ++i) {
-            string suffix = word.substr(i);
-            if (suffix > maxStr) {
-                maxStr = suffix;
+        while (j < n) {
+            int len = 0;
+            while (j + len < n && word[i + len] == word[j + len]) {
+                len++;
+            }
+
+            if (j + len < n && word[i + len] < word[j + len]) {
+                i = j;
+                j = i + 1;
+            } 
+            else {
+                j = j + len + 1;
             }
         }
 
-        string best = "";
-        int maxLen = n - numFriends + 1;
-        for (int len = 1; len <= maxLen && len <= (int)maxStr.size(); ++len) {
-            string sub = maxStr.substr(0, len);
-            if (sub > best) {
-                best = sub;
-            }
+        string res = "";
+        for (int len = 1; len <= k && i + len <= n; ++len) {
+            string sub = word.substr(i, len);
+            res = max(res, sub);
         }
 
-        return best;
+        return res;
     }
 };
