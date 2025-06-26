@@ -6,10 +6,10 @@ public:
         if(s[ind] == '0')
             return solve(ind-1, sz+1, ans, s, k);
         else{
-            if(pow(2, sz) + ans > k)
+            if(pow(2, sz)+ans > k)
                 return solve(ind-1, sz, ans, s, k);
             else
-                return solve(ind-1, sz+1, (int)pow(2, sz)+ans, s, k);
+                return solve(ind-1, sz+1, pow(2, sz)+ans, s, k);
         }
     }
     int longestSubsequence(string s, int k) {
