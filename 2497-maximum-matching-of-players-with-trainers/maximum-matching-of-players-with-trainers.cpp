@@ -12,10 +12,7 @@ public:
                 j++;
             }
             else{
-                if(trainers[j] < players[i])
-                    j++;
-                // else
-                //     i++;
+                j++;
             }
         }
         return cnt;
