@@ -1,22 +1,21 @@
 class Solution {
 public:
     int numOfUnplacedFruits(vector<int>& fruits, vector<int>& baskets) {
-        int n = fruits.size(), m = baskets.size(),ans = 0;
-        vector<bool> used(m, false);  
-
-        for(int i = 0; i < n; i++) {
-            bool placed = false;
-            for(int j = 0; j < m; j++) {
-                if(!used[j] && baskets[j] >= fruits[i]) {
-                    used[j] = true;
-                    placed = true;
-                    break;
-                }
+        int i=0, j=0, cnt=0, n=fruits.size();
+        vector<int> vis(n, 0);
+        while(i<n && j<=n){
+            if(j == n){
+                i++;
+                j=0;
             }
-            if(!placed) {
-                ans++;
+            if(i<n && !vis[j] && fruits[i] <= baskets[j]){
+                i++;
+                vis[j] = 1;
+                j=0;
             }
+            else
+                j++;
         }
-        return ans;
+        return n-accumulate(vis.begin(), vis.end(), 0);
     }
 };
