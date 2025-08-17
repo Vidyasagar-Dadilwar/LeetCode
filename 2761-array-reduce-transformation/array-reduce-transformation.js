@@ -5,7 +5,5 @@
  * @return {number}
  */
 var reduce = function(nums, fn, init) {
-    let res = init;
-    nums.map((it)=> res = fn(res, it));
-    return res;
+    return nums.reduce(fn, init);
 };
