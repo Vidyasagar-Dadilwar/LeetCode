@@ -4,8 +4,5 @@
  * @return {number[]}
  */
 var filter = function(arr, fn) {
-    var res = [];
-    for(var i=0; i<arr.length; i++)
-        (fn(arr[i], i)) ? res.push(arr[i]) : "";
-    return res;
+    return arr.filter(fn);
 };
