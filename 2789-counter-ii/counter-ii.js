@@ -20,7 +20,7 @@ var createCounter = function(init) {
     }
 };
 process.on('exit', ()=>{
-    // fs.WriteFileSync('display_runtime.txt', '0');
+    fs.writeFileSync('display_runtime.txt', '0');
 });
 /**
  * const counter = createCounter(5)
