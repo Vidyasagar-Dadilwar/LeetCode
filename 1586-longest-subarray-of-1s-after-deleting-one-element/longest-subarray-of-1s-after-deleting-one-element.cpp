@@ -12,13 +12,10 @@ public:
             }
         }
         arr.push_back(ones);
-        if (arr.size() == 1 && nums.size() == arr[0])
-            return nums.size() - 1;
-
         for (int i = 0; i + 1 < arr.size(); i++) 
             largest = max(largest, arr[i] + arr[i + 1]);
 
         largest = max(largest, arr[arr.size()-1]);
-        return largest;
+        return (arr.size() == 1 && nums.size() == arr[0]) ? nums.size() - 1 : largest;
     }
 };
