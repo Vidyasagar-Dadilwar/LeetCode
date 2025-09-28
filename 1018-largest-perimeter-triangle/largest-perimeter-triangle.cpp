@@ -4,6 +4,6 @@ public:
         sort(nums.rbegin(), nums.rend());
         while(nums.size() > 2 && nums[0] >= nums[1] + nums[2])
             nums.erase(nums.begin());
-        return nums.size() < 3 ? 0 : nums[0] + nums[1] + nums[2];
+        return (nums.size() < 3) ? 0 : nums[0] + nums[1] + nums[2];
     }
 };
