@@ -1,8 +1,8 @@
 class Solution {
 public:
     int divide(int dividend, int divisor) {
-        if(dividend == numeric_limits<int>::min() && divisor == -1)
-            return numeric_limits<int>::max();
+        if(dividend == INT_MIN && divisor == -1)
+            return INT_MAX;
         return  dividend / divisor;
     }
 };
